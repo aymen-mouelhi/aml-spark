@@ -4,12 +4,14 @@ A `debian:jessie` based [Spark](http://spark.apache.org) notebook container.
 
 ## Usage
 
-To build the docker image a simplistic standalone cluster with [docker-compose](http://docs.docker.com/compose):
+To build the docker image a simplistic standalone cluster with [docker](http://docs.docker.com/):
+
     ```
     docker build -t aml-spark .
     ```
 
 To run the image:
+
     ```
     docker run -p 8888:8888 aml-spark
     ```
