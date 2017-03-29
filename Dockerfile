@@ -16,10 +16,10 @@ RUN rm -r profiledata_06-May-2005
 RUN rm /datasets/lastfm/README.txt
 
 # Download flights data
+RUN apt-get install -y bzip2
 RUN mkdir -p /datasets/airline
-RUN wget http://stat-computing.org/dataexpo/2009/1994.csv.bz2 && tar xvzf 1994.csv.bz2 && rm 1994.csv.bz2
+RUN wget http://stat-computing.org/dataexpo/2009/1994.csv.bz2 && bzip2 -d 1994.csv.bz2
 RUN mv 1994.csv /datasets/airline
-RUN rm -r 1994.csv.bz2
 
 
 # Download Notebooks
