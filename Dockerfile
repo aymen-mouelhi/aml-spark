@@ -4,7 +4,7 @@ FROM jupyter/pyspark-notebook
 
 USER root
 
-# Download data
+# Download lastfm data
 RUN apt-get update
 RUN apt-get -f install
 RUN apt-get install -y wget
@@ -14,6 +14,12 @@ RUN wget http://www.iro.umontreal.ca/~lisa/datasets/profiledata_06-May-2005.tar.
 RUN mv profiledata_06-May-2005/* /datasets/lastfm
 RUN rm -r profiledata_06-May-2005
 RUN rm /datasets/lastfm/README.txt
+
+# Download flights data
+RUN mkdir -p /datasets/airline
+RUN wget http://stat-computing.org/dataexpo/2009/1994.csv.bz2 && tar xvzf 1994.csv.bz2 && rm 1994.csv.bz2
+RUN mv 1994.csv /datasets/airline
+RUN rm -r 1994.csv.bz2
 
 
 # Download Notebooks
